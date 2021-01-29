@@ -29,48 +29,52 @@
           <a>Избранное</a>
         </li>
         <li>
-          <a >Случайная манга</a>
+          <a>Случайная манга</a>
         </li>
         <li>
-          <a >Поиск</a>
+          <a>Поиск</a>
         </li>
         <li>
-          <a >Не прочитано</a>
+          <a>Не прочитано</a>
         </li>
         <li>
-          <a >Короткие</a>
+          <a>Короткие</a>
         </li>
         <li>
-          <a >Средние</a>
+          <a>Средние</a>
         </li>
         <li>
-          <a >Длинные</a>
+          <a>Длинные</a>
         </li>
         <li>
-          <a >Поделиться</a>
+          <a>Поделиться</a>
         </li>
         <li>
-          <a >Оценить приложение</a>
+          <a>Оценить приложение</a>
         </li>
         <li>
-          <a >Поддержать проект</a>
+          <a>Поддержать проект</a>
         </li>
         <li>
-          <a >Написать нам</a>
+          <a>Написать нам</a>
         </li>
         <li>
-          <a >Настройки</a>
+          <a>Настройки</a>
         </li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><div class="user-view">
-          <div class="background">
-            <img src="images/office.jpg">
+        <li>
+          <div class="user-view">
+            <div class="background">
+              <img src="images/office.jpg">
+            </div>
           </div>
-        </div></li>
+        </li>
         <li><a href="#!"><i class="material-icons">cloud</i>MoonReader</a></li>
-        <li><div class="divider"></div></li>
+        <li>
+          <div class="divider"></div>
+        </li>
         <li hidden><a class="subheader">Subheader</a></li>
         <li>
           <a class="waves-effect" onclick="catalog.show()">Каталог</a>
@@ -79,28 +83,28 @@
           <a class="waves-effect"><i class="material-icons">turned_in</i>Избранное</a>
         </li>
         <li>
-          <a class="waves-effect" ><i class="material-icons">rotate_right</i>Случайная манга</a>
+          <a class="waves-effect"><i class="material-icons">rotate_right</i>Случайная манга</a>
         </li>
         <li>
-          <a class="waves-effect" ><i class="material-icons">search</i>Поиск</a>
+          <a class="waves-effect"><i class="material-icons">search</i>Поиск</a>
         </li>
         <li>
-          <a class="waves-effect" ><i class="material-icons">turned_in_not</i>Не прочитано</a>
+          <a class="waves-effect"><i class="material-icons">turned_in_not</i>Не прочитано</a>
         </li>
         <li>
-          <a class="waves-effect" ><i class="material-icons">whatshot</i>Короткие</a>
+          <a class="waves-effect"><i class="material-icons">whatshot</i>Короткие</a>
         </li>
         <li>
-          <a class="waves-effect" ><i class="material-icons">whatshot</i>Средние</a>
+          <a class="waves-effect"><i class="material-icons">whatshot</i>Средние</a>
         </li>
         <li>
-          <a class="waves-effect" ><i class="material-icons">whatshot</i>Длинные</a>
+          <a class="waves-effect"><i class="material-icons">whatshot</i>Длинные</a>
         </li>
         <li>
-          <a class="waves-effect" ><i class="material-icons">share</i>Поделиться</a>
+          <a class="waves-effect"><i class="material-icons">share</i>Поделиться</a>
         </li>
         <li>
-          <a class="waves-effect" ><i class="material-icons">star</i>Оценить приложение</a>
+          <a class="waves-effect"><i class="material-icons">star</i>Оценить приложение</a>
         </li>
         <li>
           <a class="waves-effect" href="showADW"><i class="material-icons">ondemand_video</i>Поддержать проект</a>
@@ -258,7 +262,7 @@
   <script>
     let current_page
 
-    function showADW(){
+    function showADW() {
       console.log('run showADW')
     }
 
@@ -296,7 +300,6 @@
         ]
       },
       methods: {
-        
         show() {
           screens.forEach(element => {
             if (this === element) {
@@ -314,22 +317,31 @@
       data: {
         message: 'Привет, Vue!',
         seen: false,
-        chapters:[
+        chapters: [
           {
-            chapter:"",
-            manga:"",
-            title:"",
-            description:"",
-            title_image:"",
-            number:"",
-            id:""
+            chapter: "",
+            manga: "",
+            title: "",
+            description: "",
+            title_image: "",
+            number: "",
+            id: ""
           }
         ]
       },
-      methods:{
+      methods: {
+        show() {
+          screens.forEach(element => {
+            if (this === element) {
+              this.seen = true
+            } else {
+              element.seen = false
+            }
+          })
+        },
         openManga(el) {
           console.log(el.getAttribute('manga-id'))
-        } 
+        }
       }
     })
 
@@ -338,23 +350,32 @@
       data: {
         message: 'Привет, Vue!',
         seen: false,
-        pages:[
+        pages: [
           {
-            chapter:"",
-            manga:"",
-            title:"",
-            description:"",
-            title_image:"",
-            number:"",
-            id:""
+            chapter: "",
+            manga: "",
+            title: "",
+            description: "",
+            title_image: "",
+            number: "",
+            id: ""
           }
         ]
 
       },
-      methods:{
+      methods: {
+        show() {
+          screens.forEach(element => {
+            if (this === element) {
+              this.seen = true
+            } else {
+              element.seen = false
+            }
+          })
+        },
         openChapter(el) {
           console.log(el.getAttribute('chapter-id'))
-        } 
+        }
       }
     })
 
@@ -363,14 +384,28 @@
       data: {
         message: 'Привет, Vue!',
         seen: false,
-        chapter:"",
-        manga:"",
-        title:"",
-        description:"",
-        title_image:"",
-        number:"",
-        id:"",
+        chapter: "",
+        manga: "",
+        title: "",
+        description: "",
+        title_image: "",
+        number: "",
+        id: "",
         current_page=false
+      },
+      methods: {
+        show() {
+          screens.forEach(element => {
+            if (this === element) {
+              this.seen = true
+            } else {
+              element.seen = false
+            }
+          })
+        },
+        openPage(el) {
+          console.log(el.getAttribute('page-id'))
+        }
       }
     })
 
@@ -380,27 +415,38 @@
         message: 'Привет, Vue!',
         seen: false
       },
-      methods:{
-        openPage(el) {
-          console.log(el.getAttribute('page-id'))
-        } 
+      methods: {
+        show() {
+          screens.forEach(element => {
+            if (this === element) {
+              this.seen = true
+            } else {
+              element.seen = false
+            }
+          })
+        }
       }
     })
-    
-
-      screens = [
-        main,
-        catalog,
-        chapter,
-        page,
-        settings
-      ]
-
-      document.addEventListener("DOMContentLoaded", ready)
-      function ready() {}
 
 
+    let screens = [
+      main,
+      catalog,
+      chapter,
+      page,
+      settings
+    ]
 
+    document.addEventListener("DOMContentLoaded", ready)
+    function ready() { }
+
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+      document.addEventListener("backbutton", function (e) {
+        e.preventDefault();
+      }, false);
+    }
 
 
 
