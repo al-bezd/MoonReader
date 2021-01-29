@@ -25,6 +25,39 @@
         <li>
           <a onclick="catalog.show()">Каталог</a>
         </li>
+        <li>
+          <a>Избранное</a>
+        </li>
+        <li>
+          <a >Случайная манга</a>
+        </li>
+        <li>
+          <a >Поиск</a>
+        </li>
+        <li>
+          <a >Не прочитано</a>
+        </li>
+        <li>
+          <a >Короткие</a>
+        </li>
+        <li>
+          <a >Средние</a>
+        </li>
+        <li>
+          <a >Длинные</a>
+        </li>
+        <li>
+          <a >Поделиться</a>
+        </li>
+        <li>
+          <a >Оценить приложение</a>
+        </li>
+        <li>
+          <a >Поддержать проект</a>
+        </li>
+        <li>
+          <a >Написать нам</a>
+        </li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
@@ -33,6 +66,39 @@
         </li>
         <li>
           <a onclick="catalog.show()">Каталог</a>
+        </li>
+        <li>
+          <a>Избранное</a>
+        </li>
+        <li>
+          <a >Случайная манга</a>
+        </li>
+        <li>
+          <a >Поиск</a>
+        </li>
+        <li>
+          <a >Не прочитано</a>
+        </li>
+        <li>
+          <a >Короткие</a>
+        </li>
+        <li>
+          <a >Средние</a>
+        </li>
+        <li>
+          <a >Длинные</a>
+        </li>
+        <li>
+          <a >Поделиться</a>
+        </li>
+        <li>
+          <a >Оценить приложение</a>
+        </li>
+        <li>
+          <a >Поддержать проект</a>
+        </li>
+        <li>
+          <a >Написать нам</a>
         </li>
       </ul>
 
@@ -67,7 +133,7 @@
               <img :src="i.image_title">
             </div>
             <div class="card-action">
-              <a onclick="manga.openManga(i.id)">{{i.title}}</a>
+              <a onclick="manga.openManga(this)" :manga-id="i.id">{{i.title}}</a>
             </div>
           </div>
         </div>
@@ -314,8 +380,8 @@
         seen: false
       },
       methods:{
-        openManga(id) {
-          console.log(id)
+        openManga(el) {
+          console.log(el.getAttribute('manga-id'))
         } 
       }
     })
